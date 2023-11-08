@@ -1,9 +1,11 @@
-import "./App.css";
+import { Provider } from "react-redux";
+import Counter from "./components/Counter";
+import store from "./redux/store";
 function App() {
   return (
+    <Provider store={store}>
     <>
       <center>
-        {" "}
         <h1>hello react redux</h1>
       </center>
       <div className="w-screen h-screen p-10 bg-gray-100 text-slate-700">
@@ -13,20 +15,11 @@ function App() {
         </h1>
         {/* counters */}
         <div className="max-w-md mx-auto mt-10 space-y-5">
-          <div className="p-4 h-auto flex flex-col items-center justify-center space-y-5 bg-white rounded shadow">
-            <div className="text-2xl font-semibold">0</div>
-            <div className="flex space-x-3">
-              <button className="bg-indigo-400 text-white px-3 py-2 rounded shadow">
-                Increment
-              </button>
-              <button className="bg-red-400 text-white px-3 py-2 rounded shadow">
-                Decrement
-              </button>
-            </div>
-          </div>
+          <Counter />
         </div>
       </div>
     </>
+    </Provider>
   );
 }
 
